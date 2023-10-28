@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    
+        .menu-item {
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .menu-content {
+            display: none;
+            padding: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-item" onclick="toggleMenu('menu1')">Appetizers</div>
+    <div class="menu-content" id="menu1">
+        <h3>Appetizers</h3>
+        <p>1. Spring Rolls - 150 Rs.</p>
+        <p>2. Mozzarella Sticks - 200 Rs.</p>
+        <p>3. Calamari - 300 Rs.</p>
+    </div>
+
+    <div class="menu-item" onclick="toggleMenu('menu2')">Main Courses</div>
+    <div class="menu-content" id="menu2">
+        <h3>Main Courses</h3>
+        <p>1. Panner Tikka - 100 Rs.</p>
+        <p>2. Maharastra Thali - 200 Rs.</p>
+        <p>3. Puran-Poli - 500 Rs.</p>
+        <img src="thali.jpeg" alt="MaharastraThali">
+        <img src="tika.jpeg" alt="PannerTikka">
+    </div>
+
+    <div class="menu-item" onclick="toggleMenu('menu3')">Desserts</div>
+    <div class="menu-content" id="menu3">
+        <h3>Desserts</h3>
+        <p>1. Chocolate Cake - 500 Rs.</p>
+        <p>2. Cheesecake - 200 Rs.</p>
+        <p>3. Fruit Tart - 100 Rs.</p>
+    </div>
+
+    <script>
+        function toggleMenu(menuId) {
+            var menu = document.getElementById(menuId);
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

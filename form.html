@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Restaurant Reservation Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label, input, textarea {
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #ff6633;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ff3300;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Restaurant Reservation</h1>
+        <form action="form.php" method="post">
+            <link rel="stylesheet" href="form.php">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" required>
+
+            <label for="specialRequests">Special Requests:</label>
+            <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+            <button id="printPdfButton">Print as pdf</button>
+
+            <button id="submit_reservation">Submit Reservation</button>
+        </form>
+    </div>
+        <script>
+    document.getElementById("printPdfButton").addEventListener("click", function () {
+        // Initialize jsPDF
+        const doc = new jsPDF();
+
+        // Add content to the PDF
+        doc.text("Reservation Form", 10, 10);
+        doc.text("Name: " + document.getElementById("name").value, 10, 20);
+        doc.text("Email: " + document.getElementById("email").value, 10, 30);
+        doc.text("Phone: " + document.getElementById("phone").value, 10, 40);
+        doc.text("Date: " + document.getElementById("date").value, 10, 50);
+        doc.text("Time: " + document.getElementById("time").value, 10, 60);
+        doc.text("Number of Guests: " + document.getElementById("guests").value, 10, 70);
+        doc.text("Special Requests: " + document.getElementById("specialRequests").value, 10, 80);
+
+        // Save the PDF
+        doc.save("ReservationForm.pdf");
+    });
+</script>
+
+</body>
+</html>
